@@ -3,3 +3,4 @@ public class Greeter {
         return "Good day, " + name;
     }
 }
+// TODO: add farewell method
