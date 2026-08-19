@@ -1,0 +1,93 @@
+# Git Documentation
+
+## What is Git?
+Git is a distributed version control system used to track changes in source code during software development. It allows multiple developers to work on a project simultaneously without overwriting each other's changes.
+
+## Key Concepts
+
+### Repository (Repo)
+A repository is a storage location for your project, containing all files, folders, and the complete history of changes.
+
+### Commit
+A commit is a snapshot of your repository at a specific point in time. Each commit has a unique hash ID and a message describing the changes.
+
+### Branch
+A branch is an independent line of development. The default branch is usually called `main` or `master`. Branches allow you to work on features or fixes without affecting the main codebase.
+
+### Merge
+Merging combines changes from one branch into another.
+
+### Clone
+Cloning creates a local copy of a remote repository.
+
+## Common Git Commands
+
+| Command | Description |
+|---------|-------------|
+| `git init` | Initialize a new Git repository |
+| `git clone <url>` | Clone a remote repository |
+| `git status` | Show the working tree status |
+| `git add <file>` | Stage changes for commit |
+| `git commit -m "message"` | Commit staged changes with a message |
+| `git push` | Push local commits to a remote repository |
+| `git pull` | Fetch and merge changes from a remote repository |
+| `git branch` | List, create, or delete branches |
+| `git checkout <branch>` | Switch to a different branch |
+| `git merge <branch>` | Merge a branch into the current branch |
+| `git log` | View commit history |
+| `git diff` | Show changes between commits or working directory |
+| `git stash` | Temporarily save changes without committing |
+
+## Basic Workflow
+
+1. Initialize or clone a repository:
+   ```
+   git init
+   # or
+   git clone https://github.com/user/repo.git
+   ```
+
+2. Create a new branch for your feature:
+   ```
+   git checkout -b feature-branch
+   ```
+
+3. Make changes and stage them:
+   ```
+   git add .
+   ```
+
+4. Commit your changes:
+   ```
+   git commit -m "Add new feature"
+   ```
+
+5. Push your branch to the remote:
+   ```
+   git push origin feature-branch
+   ```
+
+6. Open a Pull Request (PR) to merge into `main`.
+
+## Best Practices
+- Write clear, descriptive commit messages.
+- Commit small, logical changes frequently.
+- Pull before you push to avoid conflicts.
+- Use `.gitignore` to exclude files that shouldn't be tracked (e.g., build artifacts, secrets).
+- Use branches for features, fixes, and experiments instead of committing directly to `main`.
+- Review changes with `git diff` before committing.
+
+## Resolving Merge Conflicts
+When Git cannot automatically merge changes, it marks the conflicting sections in the affected files:
+```
+<<<<<<< HEAD
+Your changes
+=======
+Incoming changes
+>>>>>>> feature-branch
+```
+Manually edit the file to resolve the conflict, then stage and commit the resolution:
+```
+git add <file>
+git commit
+```
